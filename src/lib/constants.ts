@@ -246,3 +246,140 @@ export const SERVICE_OPTIONS = [
   { value: 'tourist-visa',          label: "Turist vizasi" },
   { value: 'business-visa',         label: "Biznes vizasi" },
 ];
+
+export const SERVICE_DETAILS: Record<string, {
+  title: string;
+  description: string;
+  whatsIncluded: string[];
+  steps: { step: number; title: string; desc: string }[];
+  documents: string[];
+  faq: { q: string; a: string }[];
+}> = {
+  'university-admissions': {
+    title: "University Admissions",
+    description: "Full support for applying to top universities worldwide — from document preparation to acceptance letter.",
+    whatsIncluded: [
+      "Personal university selection based on your profile",
+      "Application essay and statement of purpose writing",
+      "Academic document verification and translation",
+      "Scholarship and financial aid research",
+      "Application submission and tracking",
+      "Pre-departure orientation",
+    ],
+    steps: [
+      { step: 1, title: "Initial Assessment", desc: "We evaluate your academic profile and goals." },
+      { step: 2, title: "University Selection", desc: "We shortlist best-fit universities for you." },
+      { step: 3, title: "Document Preparation", desc: "We help prepare and review all required documents." },
+      { step: 4, title: "Application Submission", desc: "We submit applications on time and track them." },
+      { step: 5, title: "Offer Acceptance", desc: "We guide you through choosing the best offer." },
+    ],
+    documents: [
+      "Academic transcripts and diplomas",
+      "Language proficiency certificate (IELTS/TOEFL)",
+      "Statement of purpose / motivation letter",
+      "Letters of recommendation",
+      "CV / Resume",
+      "Passport copy",
+    ],
+    faq: [
+      { q: "When should I start the process?", a: "Ideally 12–18 months before your intended start date." },
+      { q: "How many universities can I apply to?", a: "We recommend applying to 5–8 universities for the best chances." },
+      { q: "Do you help with scholarships?", a: "Yes, we identify and assist with scholarship applications." },
+    ],
+  },
+  'student-visa': {
+    title: "Student Visa",
+    description: "Expert guidance through every step of the student visa application process — from document prep to interview.",
+    whatsIncluded: [
+      "Visa document checklist and preparation",
+      "Application form filling and review",
+      "Financial proof guidance",
+      "Embassy interview preparation",
+      "Visa appointment scheduling support",
+      "Post-approval assistance",
+    ],
+    steps: [
+      { step: 1, title: "Document Checklist", desc: "We provide a tailored checklist for your destination country." },
+      { step: 2, title: "Application Preparation", desc: "We help fill and review your complete visa application." },
+      { step: 3, title: "Interview Coaching", desc: "Mock interviews and tips to maximize approval chances." },
+      { step: 4, title: "Submission Support", desc: "We guide you through the submission and appointment process." },
+      { step: 5, title: "Outcome & Next Steps", desc: "We assist with next steps after visa decision." },
+    ],
+    documents: [
+      "University acceptance letter",
+      "Valid passport (6+ months validity)",
+      "Bank statements (6 months)",
+      "Accommodation proof",
+      "Health insurance",
+      "Completed visa application form",
+    ],
+    faq: [
+      { q: "How long does a student visa take?", a: "Typically 2–8 weeks depending on the country." },
+      { q: "What if my visa is rejected?", a: "We analyze the reason and help you reapply with a stronger application." },
+      { q: "Do I need to attend an interview?", a: "Some countries require an embassy interview — we prepare you fully." },
+    ],
+  },
+  'tourist-visa': {
+    title: "Tourist Visa",
+    description: "Fast, reliable tourist visa processing so you can travel without stress.",
+    whatsIncluded: [
+      "Visa type and requirements consultation",
+      "Application form preparation",
+      "Document review and checklist",
+      "Travel itinerary guidance",
+      "Submission and tracking support",
+      "Rush processing available",
+    ],
+    steps: [
+      { step: 1, title: "Consultation", desc: "We determine the right visa type for your travel plans." },
+      { step: 2, title: "Document Preparation", desc: "We prepare and review all required documents." },
+      { step: 3, title: "Application Submission", desc: "We guide you through official submission." },
+      { step: 4, title: "Processing & Tracking", desc: "We monitor application status and keep you updated." },
+    ],
+    documents: [
+      "Valid passport",
+      "Completed visa application",
+      "Recent passport-size photos",
+      "Flight itinerary",
+      "Hotel/accommodation booking",
+      "Bank statement",
+    ],
+    faq: [
+      { q: "How quickly can I get a tourist visa?", a: "Standard processing is 5–15 business days; rush options available." },
+      { q: "Can I extend my tourist visa?", a: "Extension policies vary by country — we advise on your options." },
+      { q: "Do I need travel insurance?", a: "Many countries require it. We help you find appropriate coverage." },
+    ],
+  },
+  'business-visa': {
+    title: "Business Visa",
+    description: "Efficient business visa processing for professionals and corporate travelers worldwide.",
+    whatsIncluded: [
+      "Business visa category assessment",
+      "Invitation letter guidance",
+      "Corporate document preparation",
+      "Application form review",
+      "Expedited processing options",
+      "Multiple-entry visa advisory",
+    ],
+    steps: [
+      { step: 1, title: "Requirements Review", desc: "We assess your business travel needs and visa category." },
+      { step: 2, title: "Document Collection", desc: "We compile the required corporate and personal documents." },
+      { step: 3, title: "Application Filing", desc: "We prepare and file your visa application correctly." },
+      { step: 4, title: "Follow-up", desc: "We track your application and handle any queries from the embassy." },
+    ],
+    documents: [
+      "Valid passport",
+      "Company invitation letter",
+      "Business registration documents",
+      "Bank statements",
+      "Travel itinerary",
+      "Completed application form",
+    ],
+    faq: [
+      { q: "Can I get a multiple-entry business visa?", a: "Yes, for frequent travelers we advise on multi-entry options." },
+      { q: "How fast is business visa processing?", a: "Typically 3–5 weeks; express options available for urgent trips." },
+      { q: "Is an interview required?", a: "Usually not, but some embassies may request one — we prepare you." },
+    ],
+  },
+};
+
