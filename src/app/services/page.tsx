@@ -8,11 +8,6 @@ import CTABanner from '@/components/ui/CTABanner';
 import FadeInSection from '@/components/ui/FadeInSection';
 import { SERVICES } from '@/lib/constants';
 
-export const metadata = {
-  title: 'Our Services',
-  description: 'Comprehensive study abroad services including university admissions and visa processing.',
-};
-
 export default function ServicesPage() {
   return (
     <>
