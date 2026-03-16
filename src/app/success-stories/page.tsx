@@ -6,10 +6,9 @@ import * as Icons from 'lucide-react';
 import TestimonialCard from '@/components/ui/TestimonialCard';
 import CTABanner from '@/components/ui/CTABanner';
 import FadeInSection from '@/components/ui/FadeInSection';
-import { TESTIMONIALS, SERVICES } from '@/lib/constants';
+import { TESTIMONIALS } from '@/lib/constants';
 
 export default function SuccoriesPage() {
-  const [selectedService, setSelectedService] = useState<string | null>(null);
   const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
 
   const countries = useMemo(

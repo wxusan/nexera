@@ -179,58 +179,67 @@ export const TESTIMONIALS = [
 ];
 
 export const UNIVERSITIES = [
-  { id: 1, name: 'Imperial College London', country: 'Buyuk Britaniya', countryCode: 'GB', programs: ['Muhandislik', 'Tibbiyot', 'Biznes', 'Fan'] },
-  { id: 2, name: 'TU Berlin',               country: 'Germaniya',       countryCode: 'DE', programs: ['Muhandislik', 'Kompyuter fanlari', 'Fizika', 'Matematika'] },
-  { id: 3, name: 'University of Amsterdam', country: 'Niderlandiya',    countryCode: 'NL', programs: ['Iqtisodiyot', 'Huquq', 'Ijtimoiy fanlar', 'Tibbiyot'] },
-  { id: 4, name: 'University of Vienna',    country: 'Avstriya',        countryCode: 'AT', programs: ['Tibbiyot', 'Huquq', 'Gumanitar fanlar', 'Tabiiy fanlar'] },
-  { id: 5, name: 'Utrecht University',      country: 'Niderlandiya',    countryCode: 'NL', programs: ['Moliya', 'Muhandislik', 'Tibbiyot', 'Fan'] },
-  { id: 6, name: 'University of Warsaw',    country: 'Polsha',          countryCode: 'PL', programs: ['Pedagogika', 'Iqtisodiyot', 'Huquq', 'Tarix'] },
-  { id: 7, name: 'Charles University',      country: 'Chexiya',         countryCode: 'CZ', programs: ['Tibbiyot', 'Farmatsevtika', 'Huquq', 'Tabiiy fanlar'] },
-  { id: 8, name: 'Masaryk University',      country: 'Chexiya',         countryCode: 'CZ', programs: ['Iqtisodiyot', 'Informatika', 'Ijtimoiy fanlar', 'Sport'] },
+  { id: 1, logo: 'IC', name: 'Imperial College London', country: 'Buyuk Britaniya', countryCode: 'GB', programs: ['Muhandislik', 'Tibbiyot', 'Biznes', 'Fan'] },
+  { id: 2, logo: 'TU', name: 'TU Berlin',               country: 'Germaniya',       countryCode: 'DE', programs: ['Muhandislik', 'Kompyuter fanlari', 'Fizika', 'Matematika'] },
+  { id: 3, logo: 'UA', name: 'University of Amsterdam', country: 'Niderlandiya',    countryCode: 'NL', programs: ['Iqtisodiyot', 'Huquq', 'Ijtimoiy fanlar', 'Tibbiyot'] },
+  { id: 4, logo: 'UV', name: 'University of Vienna',    country: 'Avstriya',        countryCode: 'AT', programs: ['Tibbiyot', 'Huquq', 'Gumanitar fanlar', 'Tabiiy fanlar'] },
+  { id: 5, logo: 'UU', name: 'Utrecht University',      country: 'Niderlandiya',    countryCode: 'NL', programs: ['Moliya', 'Muhandislik', 'Tibbiyot', 'Fan'] },
+  { id: 6, logo: 'UW', name: 'University of Warsaw',    country: 'Polsha',          countryCode: 'PL', programs: ['Pedagogika', 'Iqtisodiyot', 'Huquq', 'Tarix'] },
+  { id: 7, logo: 'CU', name: 'Charles University',      country: 'Chexiya',         countryCode: 'CZ', programs: ['Tibbiyot', 'Farmatsevtika', 'Huquq', 'Tabiiy fanlar'] },
+  { id: 8, logo: 'MU', name: 'Masaryk University',      country: 'Chexiya',         countryCode: 'CZ', programs: ['Iqtisodiyot', 'Informatika', 'Ijtimoiy fanlar', 'Sport'] },
 ];
 
 export const FAQ_ITEMS = [
   {
     id: 'q1',
+    category: 'Admissions',
     question: "Qabul jarayoni qachon boshlanishi kerak?",
     answer: "O'qishni boshlashni rejalashtirgan sanadan 12–18 oy oldin boshlash tavsiya etiladi. Bu hujjat tayyorlash, ariza topshirish va viza olish uchun yetarli vaqt beradi.",
   },
   {
     id: 'q2',
+    category: 'Admissions',
     question: "Chet el universitetiga kirish uchun qanday talablar bor?",
     answer: "Asosiy talablar: yaxshi akademik ko'rsatkichlar, ingliz tili bilimi (IELTS/TOEFL), ba'zi hollarda SAT/GRE natijalari. Biz sizning profilingizni ko'rib, qaysi universitetlarga murojaat qilish mumkinligini aniqlaymiz.",
   },
   {
     id: 'q3',
+    category: 'Admissions',
     question: "Stipendiya olish imkoniyati bormi?",
     answer: "Ha, ko'pgina xorij universitetlari stipendiya taklif qiladi. Biz sizni mos stipendiya dasturlarini topishda va ariza tayyorlashda yordam beramiz.",
   },
   {
     id: 'q4',
+    category: 'Visa',
     question: "Talaba vizasini olish qancha vaqt oladi?",
     answer: "Viza ko'rib chiqish muddati mamlakatga qarab 2–8 hafta davom etadi. Biz jarayonni qabul xati kelgandan so'ng darhol boshlaymiz.",
   },
   {
     id: 'q5',
+    category: 'Visa',
     question: "Viza rad etilsa nima bo'ladi?",
     answer: "Rad etish sabablarini tahlil qilib, hujjatlarni yaxshilagan holda qayta ariza topshirishga yordam beramiz. Ko'pchilik talabalar ikkinchi urinishda vizani oladilar.",
   },
   {
     id: 'q6',
+    category: 'Services',
     question: "Xizmatlaringiz narxi qancha?",
     answer: "Narx tanlangan xizmat paketiga qarab farq qiladi. Bepul maslahat uchun murojaat qiling — biz sizning holatizni ko'rib, eng mos paketni tavsiya etamiz.",
   },
   {
     id: 'q7',
+    category: 'Services',
     question: "Magistratura va doktorantura uchun ham yordam berasizmi?",
     answer: "Ha, biz bakalavriat, magistratura va doktorantura dasturlari uchun ham to'liq yordam ko'rsatamiz.",
   },
   {
     id: 'q8',
+    category: 'Services',
     question: "Turist va biznes vizasi uchun ham murojaat qilsa bo'ladimi?",
     answer: "Albatta. Biz nafaqat talaba vizasi, balki turist va biznes vizalarini rasmiylashtirishda ham professional yordam beramiz.",
   },
 ];
+
 
 export const COUNTRIES = [
   "Germaniya", "Niderlandiya", "Polsha", "Chexiya", "Avstriya",
