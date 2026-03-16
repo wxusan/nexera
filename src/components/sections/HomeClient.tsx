@@ -183,7 +183,7 @@ function TestimonialsCarousel({ testimonials }: { testimonials: Testimonial[] })
               <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-xl flex-shrink-0">{t.flag}</div>
               <div>
                 <div className="font-bold text-slate-900 text-sm">{t.name}</div>
-                <div className="text-xs text-slate-500">{t.university} — {t.program}</div>
+                <div className="text-xs text-slate-500">{t.university} · {t.program}</div>
               </div>
             </div>
           </div>
@@ -209,43 +209,77 @@ export default function HomeClient({ data }: { data: SiteData }) {
           backgroundImage: 'linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px)',
           backgroundSize: '44px 44px',
         }} />
-        <div className="absolute top-20 right-10 w-72 h-72 bg-blue-400/20 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-10 left-10 w-56 h-56 bg-teal-400/20 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-20 right-10 w-80 h-80 bg-blue-400/20 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-10 left-10 w-64 h-64 bg-teal-400/20 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none -translate-x-1/2 -translate-y-1/2" />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="max-w-3xl">
-            <FadeIn>
-              <div className="inline-flex items-center gap-2 bg-white/15 border border-white/25 text-white text-sm font-medium px-4 py-1.5 rounded-full mb-6 backdrop-blur-sm">
-                <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse" />
-                {c.hero_badge}
-              </div>
-            </FadeIn>
-            <FadeIn delay={0.1}>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-5">
-                {c.hero_headline}
-              </h1>
-            </FadeIn>
-            <FadeIn delay={0.2}>
-              <p className="text-lg sm:text-xl text-blue-100 leading-relaxed mb-8 max-w-2xl">
-                {c.hero_subtext}
-              </p>
-            </FadeIn>
-            <FadeIn delay={0.3}>
-              <div className="flex flex-wrap gap-3">
-                <motion.button whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}
-                  onClick={() => scrollTo('aloqa')}
-                  className="bg-white text-blue-600 font-bold px-7 py-3.5 rounded-xl shadow-lg hover:bg-blue-50 transition-colors flex items-center gap-2 text-sm">
-                  {c.hero_cta_primary} <ArrowRight size={16} />
-                </motion.button>
-                <motion.button whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}
-                  onClick={() => scrollTo('xizmatlar')}
-                  className="bg-white/15 border border-white/30 text-white font-semibold px-7 py-3.5 rounded-xl hover:bg-white/25 transition-colors text-sm backdrop-blur-sm">
-                  {c.hero_cta_secondary}
-                </motion.button>
-              </div>
-            </FadeIn>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+            {/* Left — text */}
+            <div>
+              <FadeIn>
+                <div className="inline-flex items-center gap-2 bg-white/15 border border-white/25 text-white text-sm font-medium px-4 py-1.5 rounded-full mb-6 backdrop-blur-sm">
+                  <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse" />
+                  {c.hero_badge}
+                </div>
+              </FadeIn>
+              <FadeIn delay={0.1}>
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-5">
+                  {c.hero_headline}
+                </h1>
+              </FadeIn>
+              <FadeIn delay={0.2}>
+                <p className="text-lg sm:text-xl text-blue-100 leading-relaxed mb-8 max-w-xl">
+                  {c.hero_subtext}
+                </p>
+              </FadeIn>
+              <FadeIn delay={0.3}>
+                <div className="flex flex-wrap gap-3">
+                  <motion.button whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}
+                    onClick={() => scrollTo('aloqa')}
+                    className="bg-white text-blue-600 font-bold px-7 py-3.5 rounded-xl shadow-lg hover:bg-blue-50 transition-colors flex items-center gap-2 text-sm">
+                    {c.hero_cta_primary} <ArrowRight size={16} />
+                  </motion.button>
+                  <motion.button whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}
+                    onClick={() => scrollTo('xizmatlar')}
+                    className="bg-white/15 border border-white/30 text-white font-semibold px-7 py-3.5 rounded-xl hover:bg-white/25 transition-colors text-sm backdrop-blur-sm">
+                    {c.hero_cta_secondary}
+                  </motion.button>
+                </div>
+              </FadeIn>
+            </div>
+
+            {/* Right — floating stat cards (desktop only) */}
+            <div className="hidden lg:flex flex-col gap-4 items-end">
+              {[
+                { icon: <GraduationCap size={22} />, value: `${stats[0]?.number ?? 500}+`, label: "Muvaffaqiyatli talaba", delay: 0.4  },
+                { icon: <Globe size={22} />,         value: `${stats[2]?.number ?? 40}+`,  label: "Mamlakat bo'ylab",      delay: 0.55 },
+                { icon: <Building2 size={22} />,     value: `${stats[1]?.number ?? 120}+`, label: "Hamkor universitetlar", delay: 0.7  },
+                { icon: <TrendingUp size={22} />,    value: `${stats[3]?.number ?? 96}%`,  label: "Muvaffaqiyat darajasi", delay: 0.85 },
+              ].map((card) => (
+                <motion.div
+                  key={card.label}
+                  initial={{ opacity: 0, x: 40 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: card.delay, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                  whileHover={{ scale: 1.04, x: -4 }}
+                  className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-5 py-4 flex items-center gap-4 w-64"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center text-white flex-shrink-0">
+                    {card.icon}
+                  </div>
+                  <div>
+                    <div className="text-white font-black text-2xl leading-none">{card.value}</div>
+                    <div className="text-blue-100 text-xs mt-1">{card.label}</div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
           </div>
         </div>
+
         <motion.div animate={{ y: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 2 }}
           className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/50 cursor-pointer" onClick={() => scrollTo('stats')}>
           <ChevronDown size={28} />
@@ -470,7 +504,7 @@ export default function HomeClient({ data }: { data: SiteData }) {
                   "Shaxsiy maslahatchi tayinlanadi",
                   `${stats[3]?.number ?? 96}% muvaffaqiyat darajasi`,
                   "Hujjat tayyorlashda to'liq yordam",
-                  "Viza rad etilsa — qayta ishlashga yordam",
+                  "Viza rad etilsa, qayta ishlashga yordam",
                 ].map((text, i) => (
                   <div key={i} className="flex items-center gap-2.5 text-sm text-slate-700">
                     <CheckCircle size={15} className="text-teal-500 flex-shrink-0" /> {text}

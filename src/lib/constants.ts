@@ -142,7 +142,7 @@ export const TESTIMONIALS = [
     country: "Farg'ona",
     university: "TU Berlin",
     program: "Kompyuter fanlari",
-    quote: "TU Berlin — mening orzuim edi. Nexera bu orzuni haqiqatga aylantirdi. Professional, tez va ishonchli xizmat.",
+    quote: "TU Berlin mening orzuim edi. Nexera bu orzuni haqiqatga aylantirdi. Professional, tez va ishonchli xizmat.",
     rating: 5,
     flag: '🇺🇿',
   },
@@ -224,7 +224,7 @@ export const FAQ_ITEMS = [
     id: 'q6',
     category: 'Services',
     question: "Xizmatlaringiz narxi qancha?",
-    answer: "Narx tanlangan xizmat paketiga qarab farq qiladi. Bepul maslahat uchun murojaat qiling — biz sizning holatizni ko'rib, eng mos paketni tavsiya etamiz.",
+    answer: "Narx tanlangan xizmat paketiga qarab farq qiladi. Bepul maslahat uchun murojaat qiling, biz sizning holatingizni ko'rib, eng mos paketni tavsiya etamiz.",
   },
   {
     id: 'q7',
@@ -266,7 +266,7 @@ export const SERVICE_DETAILS: Record<string, {
 }> = {
   'university-admissions': {
     title: "University Admissions",
-    description: "Full support for applying to top universities worldwide — from document preparation to acceptance letter.",
+    description: "Full support for applying to top universities worldwide, from document preparation to acceptance letter.",
     whatsIncluded: [
       "Personal university selection based on your profile",
       "Application essay and statement of purpose writing",
@@ -298,7 +298,7 @@ export const SERVICE_DETAILS: Record<string, {
   },
   'student-visa': {
     title: "Student Visa",
-    description: "Expert guidance through every step of the student visa application process — from document prep to interview.",
+    description: "Expert guidance through every step of the student visa application process, from document prep to interview.",
     whatsIncluded: [
       "Visa document checklist and preparation",
       "Application form filling and review",
@@ -325,7 +325,7 @@ export const SERVICE_DETAILS: Record<string, {
     faq: [
       { q: "How long does a student visa take?", a: "Typically 2–8 weeks depending on the country." },
       { q: "What if my visa is rejected?", a: "We analyze the reason and help you reapply with a stronger application." },
-      { q: "Do I need to attend an interview?", a: "Some countries require an embassy interview — we prepare you fully." },
+      { q: "Do I need to attend an interview?", a: "Some countries require an embassy interview. We prepare you fully." },
     ],
   },
   'tourist-visa': {
@@ -355,7 +355,7 @@ export const SERVICE_DETAILS: Record<string, {
     ],
     faq: [
       { q: "How quickly can I get a tourist visa?", a: "Standard processing is 5–15 business days; rush options available." },
-      { q: "Can I extend my tourist visa?", a: "Extension policies vary by country — we advise on your options." },
+      { q: "Can I extend my tourist visa?", a: "Extension policies vary by country. We advise on your options." },
       { q: "Do I need travel insurance?", a: "Many countries require it. We help you find appropriate coverage." },
     ],
   },
@@ -387,7 +387,7 @@ export const SERVICE_DETAILS: Record<string, {
     faq: [
       { q: "Can I get a multiple-entry business visa?", a: "Yes, for frequent travelers we advise on multi-entry options." },
       { q: "How fast is business visa processing?", a: "Typically 3–5 weeks; express options available for urgent trips." },
-      { q: "Is an interview required?", a: "Usually not, but some embassies may request one — we prepare you." },
+      { q: "Is an interview required?", a: "Usually not, but some embassies may request one. We prepare you if needed." },
     ],
   },
 };

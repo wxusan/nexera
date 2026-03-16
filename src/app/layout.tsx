@@ -4,6 +4,7 @@ import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import FloatingWhatsApp from '@/components/layout/FloatingWhatsApp';
+import PopupForm from '@/components/sections/PopupForm';
 
 const inter = Inter({ subsets: ['latin', 'cyrillic'], variable: '--font-inter' });
 
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
     template: "%s | Nexera",
   },
   description:
-    "Nexera — O'zbekiston talabalariga xorijiy universitetlarga qabul va viza olishda professional yordam ko'rsatuvchi maslahat agentligi. 500+ talaba, 40+ mamlakat.",
+    "Nexera: O'zbekiston talabalariga xorijiy universitetlarga qabul va viza olishda professional yordam ko'rsatuvchi maslahat agentligi. 500+ talaba, 40+ mamlakat.",
   keywords: [
     "chet el ta'limi",
     "xorij universitetiga qabul",
@@ -52,6 +53,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main className="min-h-screen">{children}</main>
         <Footer />
         <FloatingWhatsApp />
+        <PopupForm />
       </body>
     </html>
   );

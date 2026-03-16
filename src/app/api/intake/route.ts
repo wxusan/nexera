@@ -5,7 +5,7 @@ import { google } from 'googleapis';
 const intakeSchema = z.object({
   fullName:    z.string().min(2),
   phone:       z.string().min(9),
-  email:       z.string().email(),
+  telegram:    z.string().min(3),
   serviceType: z.string().min(1),
   country:     z.string().min(1),
   message:     z.string().optional(),
@@ -33,7 +33,7 @@ async function appendToLeads(data: IntakeData): Promise<void> {
         new Date().toLocaleString('uz-UZ', { timeZone: 'Asia/Tashkent' }),
         data.fullName,
         data.phone,
-        data.email,
+        '@' + data.telegram,
         data.serviceType,
         data.country,
         data.message ?? '',

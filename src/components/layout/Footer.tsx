@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { Phone, Mail, MapPin, Instagram, Facebook, Send } from 'lucide-react';
 
 const NAV_LINKS = [
@@ -76,12 +75,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-6 border-t border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-slate-600">
+        <div className="pt-6 border-t border-slate-800 text-center text-xs text-slate-600">
           <span>© {new Date().getFullYear()} Nexera. Barcha huquqlar himoyalangan.</span>
-          <div className="flex gap-4">
-            <Link href="/privacy-policy" className="hover:text-slate-400 transition-colors">Maxfiylik siyosati</Link>
-            <Link href="/terms" className="hover:text-slate-400 transition-colors">Foydalanish shartlari</Link>
-          </div>
         </div>
       </div>
     </footer>

@@ -13,7 +13,7 @@ import { cn } from '@/lib/utils';
 const schema = z.object({
   fullName:    z.string().min(2, "Ism va familiyangizni kiriting"),
   phone:       z.string().min(9, "To'g'ri telefon raqam kiriting"),
-  email:       z.string().email("To'g'ri email manzil kiriting"),
+  telegram:    z.string().min(3, "Telegram username kiriting"),
   serviceType: z.string().min(1, "Xizmat turini tanlang"),
   country:     z.string().min(1, "Mamlakatni tanlang"),
   message:     z.string().optional(),
@@ -21,7 +21,7 @@ const schema = z.object({
 
 type FormData = z.infer<typeof schema>;
 
-const STEP1_FIELDS = ['fullName', 'phone', 'email', 'serviceType'] as const;
+const STEP1_FIELDS = ['fullName', 'phone', 'telegram', 'serviceType'] as const;
 const STEP2_FIELDS = ['country'] as const;
 
 // ─── FIELD COMPONENTS ────────────────────────────────────────────────────
@@ -43,7 +43,7 @@ const inputCls = (error?: string) => cn(
     : "border-slate-200 bg-white hover:border-slate-300"
 );
 
-export default function IntakeForm() {
+export default function IntakeForm({ onSuccess }: { onSuccess?: () => void }) {
   const [step, setStep] = useState(1);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -72,6 +72,7 @@ export default function IntakeForm() {
       });
       if (!res.ok) throw new Error();
       setSubmitted(true);
+      onSuccess?.();
     } catch {
       setServerError("Xatolik yuz berdi. Iltimos, qaytadan urinib ko'ring yoki WhatsApp orqali bog'laning.");
     } finally {
@@ -104,7 +105,7 @@ export default function IntakeForm() {
       {/* Header */}
       <div className="mb-6">
         <h3 className="text-xl font-black text-slate-900 mb-1">Bepul maslahat olish</h3>
-        <p className="text-slate-500 text-sm">Formani to'ldiring — biz sizga yozamiz.</p>
+        <p className="text-slate-500 text-sm">Formani to'ldiring, biz sizga yozamiz.</p>
       </div>
 
       {/* Progress */}
@@ -154,13 +155,15 @@ export default function IntakeForm() {
                 />
               </Field>
 
-              <Field label="Email manzil *" error={errors.email?.message}>
-                <input
-                  {...register('email')}
-                  placeholder="email@manzil.com"
-                  type="email"
-                  className={inputCls(errors.email?.message)}
-                />
+              <Field label="Telegram username *" error={errors.telegram?.message}>
+                <div className="relative">
+                  <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm font-medium">@</span>
+                  <input
+                    {...register('telegram')}
+                    placeholder="username"
+                    className={cn(inputCls(errors.telegram?.message), 'pl-8')}
+                  />
+                </div>
               </Field>
 
               <Field label="Xizmat turi *" error={errors.serviceType?.message}>
