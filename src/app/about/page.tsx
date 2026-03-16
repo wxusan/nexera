@@ -139,7 +139,7 @@ export default function AboutPage() {
                 >
                   <div className="bg-gradient-to-br from-primary-100 to-blue-100 h-48 flex items-center justify-center">
                     <div className="w-24 h-24 bg-primary-600 rounded-full flex items-center justify-center text-white font-bold text-2xl">
-                      {member.image}
+                      {member.initials}
                     </div>
                   </div>
                   <div className="p-6">
