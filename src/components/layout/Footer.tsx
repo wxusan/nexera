@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, Instagram, Facebook, Send } from 'lucide-react';
+import { Phone, Mail, MapPin, Instagram, Send } from 'lucide-react';
 
 const NAV_LINKS = [
   { label: "Xizmatlar",       href: "#xizmatlar" },
@@ -26,9 +26,8 @@ export default function Footer() {
             </p>
             <div className="flex gap-3">
               {[
-                { icon: <Instagram size={16} />, href: '#', label: 'Instagram' },
-                { icon: <Facebook size={16} />,  href: '#', label: 'Facebook' },
-                { icon: <Send size={16} />,      href: '#', label: 'Telegram' },
+                { icon: <Instagram size={16} />, href: 'https://instagram.com/Nexera_consulting', label: 'Instagram' },
+                { icon: <Send size={16} />,      href: 'https://t.me/Nexera_consulting',        label: 'Telegram'  },
               ].map((s) => (
                 <a
                   key={s.label}
@@ -61,9 +60,9 @@ export default function Footer() {
             <h4 className="text-white font-semibold text-sm mb-4">Aloqa</h4>
             <ul className="space-y-3">
               {[
-                { icon: <Phone size={15} />,  text: '+998 90 000 00 00' },
-                { icon: <Mail size={15} />,   text: 'info@nexera.uz' },
-                { icon: <MapPin size={15} />, text: "Toshkent, O'zbekiston" },
+                { icon: <Phone size={15} />,  text: '+998 99 212 99 44' },
+                { icon: <Mail size={15} />,   text: 'nexeraconsulting@gmail.com' },
+                { icon: <MapPin size={15} />, text: "Galaba shokh ko'chasi, Navoiy" },
               ].map((item, i) => (
                 <li key={i} className="flex items-center gap-2.5 text-sm">
                   <span className="text-blue-400 flex-shrink-0">{item.icon}</span>

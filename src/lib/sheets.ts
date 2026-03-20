@@ -39,10 +39,10 @@ const FALLBACK_CONTENT: SiteContent = {
   contact_tag:          "Bog'laning",
   contact_title:        "Bepul maslahat olish uchun murojaat qiling",
   contact_subtext:      "Mutaxassisimiz 24 soat ichida siz bilan bog'lanadi va bepul maslahat uchun qulay vaqt belgilaydi.",
-  contact_phone:        "+998 90 000 00 00",
-  contact_email:        "info@nexera.uz",
-  contact_address:      "Toshkent, O'zbekiston",
-  telegram_username:    "nexera_uz",
+  contact_phone:        "+998 99 212 99 44",
+  contact_email:        "nexeraconsulting@gmail.com",
+  contact_address:      "Galaba shokh ko'chasi, Navoiy",
+  telegram_username:    "Nexera_consulting",
   footer_tagline:       "O'zbekiston talabalariga xorijiy universitetlarga qabul va viza olishda professional yordam.",
 };
 

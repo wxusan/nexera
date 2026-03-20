@@ -306,7 +306,6 @@ export default function HomeClient({ data }: { data: SiteData }) {
       <section id="xizmatlar" className="section-padding">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn className="text-center mb-12">
-            <p className="text-blue-600 font-semibold text-sm uppercase tracking-widest mb-2">{c.services_section_tag}</p>
             <h2 className="section-heading">{c.services_title}</h2>
             <p className="section-subheading mx-auto text-center">{c.services_subtitle}</p>
           </FadeIn>
@@ -350,7 +349,6 @@ export default function HomeClient({ data }: { data: SiteData }) {
       <section id="jarayon" className="section-padding bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn className="text-center mb-12">
-            <p className="text-blue-600 font-semibold text-sm uppercase tracking-widest mb-2">{c.process_section_tag}</p>
             <h2 className="section-heading">{c.process_title}</h2>
             <p className="section-subheading mx-auto text-center">{c.process_subtitle}</p>
           </FadeIn>
@@ -387,7 +385,6 @@ export default function HomeClient({ data }: { data: SiteData }) {
       <section id="muvaffaqiyatlar" className="section-padding">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn className="text-center mb-12">
-            <p className="text-blue-600 font-semibold text-sm uppercase tracking-widest mb-2">{c.testimonials_tag}</p>
             <h2 className="section-heading">{c.testimonials_title}</h2>
             <p className="section-subheading mx-auto text-center">{c.testimonials_subtitle}</p>
           </FadeIn>
@@ -399,7 +396,6 @@ export default function HomeClient({ data }: { data: SiteData }) {
       <section id="universitetlar" className="section-padding bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn className="text-center mb-12">
-            <p className="text-blue-600 font-semibold text-sm uppercase tracking-widest mb-2">{c.universities_tag}</p>
             <h2 className="section-heading">{c.universities_title}</h2>
             <p className="section-subheading mx-auto text-center">{c.universities_subtitle}</p>
           </FadeIn>
@@ -417,7 +413,6 @@ export default function HomeClient({ data }: { data: SiteData }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <FadeIn>
-              <p className="text-blue-600 font-semibold text-sm uppercase tracking-widest mb-3">{c.about_tag}</p>
               <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mb-5 leading-tight">{c.about_title}</h2>
               <p className="text-slate-600 leading-relaxed mb-5">{c.about_text1}</p>
               <p className="text-slate-600 leading-relaxed mb-8">{c.about_text2}</p>
@@ -467,7 +462,6 @@ export default function HomeClient({ data }: { data: SiteData }) {
       <section id="faq" className="section-padding bg-slate-50">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <FadeIn className="text-center mb-10">
-            <p className="text-blue-600 font-semibold text-sm uppercase tracking-widest mb-2">{c.faq_tag}</p>
             <h2 className="section-heading">{c.faq_title}</h2>
           </FadeIn>
           <FAQAccordion items={faq} />
@@ -479,24 +473,54 @@ export default function HomeClient({ data }: { data: SiteData }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <FadeIn>
-              <p className="text-blue-600 font-semibold text-sm uppercase tracking-widest mb-3">{c.contact_tag}</p>
               <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mb-5 leading-tight">{c.contact_title}</h2>
               <p className="text-slate-600 leading-relaxed mb-8">{c.contact_subtext}</p>
-              <div className="space-y-4 mb-8">
-                {[
-                  { icon: <Phone size={18} className="text-blue-600" />,  label: "Telefon", value: c.contact_phone },
-                  { icon: <Mail size={18} className="text-blue-600" />,   label: "Email",   value: c.contact_email },
-                  { icon: <MapPin size={18} className="text-blue-600" />, label: "Manzil",  value: c.contact_address },
-                ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0">{item.icon}</div>
-                    <div>
-                      <div className="text-xs text-slate-400 font-medium">{item.label}</div>
-                      <div className="text-slate-900 font-semibold text-sm">{item.value}</div>
-                    </div>
+              <div className="space-y-4 mb-6">
+                <a href={`tel:${c.contact_phone.replace(/\s/g,'')}`} className="flex items-center gap-4 group">
+                  <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-100 transition-colors">
+                    <Phone size={18} className="text-blue-600" />
                   </div>
-                ))}
+                  <div>
+                    <div className="text-xs text-slate-400 font-medium">Telefon</div>
+                    <div className="text-slate-900 font-semibold text-sm group-hover:text-blue-600 transition-colors">{c.contact_phone}</div>
+                  </div>
+                </a>
+                <a href={`mailto:${c.contact_email}`} className="flex items-center gap-4 group">
+                  <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-100 transition-colors">
+                    <Mail size={18} className="text-blue-600" />
+                  </div>
+                  <div>
+                    <div className="text-xs text-slate-400 font-medium">Email</div>
+                    <div className="text-slate-900 font-semibold text-sm group-hover:text-blue-600 transition-colors">{c.contact_email}</div>
+                  </div>
+                </a>
+                <a href="https://maps.app.goo.gl/nexera" target="_blank" rel="noopener noreferrer"
+                  onClick={(e) => { e.preventDefault(); window.open('https://www.google.com/maps/place/NeXera+consulting,+Galaba+shokh+st,+210100,+Navoi', '_blank'); }}
+                  className="flex items-center gap-4 group">
+                  <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-100 transition-colors">
+                    <MapPin size={18} className="text-blue-600" />
+                  </div>
+                  <div>
+                    <div className="text-xs text-slate-400 font-medium">Manzil</div>
+                    <div className="text-slate-900 font-semibold text-sm group-hover:text-blue-600 transition-colors">{c.contact_address}</div>
+                  </div>
+                </a>
               </div>
+
+              {/* Google Maps embed */}
+              <div className="rounded-2xl overflow-hidden border border-slate-100 shadow-sm mb-8" style={{ height: 200 }}>
+                <iframe
+                  src="https://maps.google.com/maps?q=40.0971014,65.3838355&z=15&output=embed"
+                  width="100%"
+                  height="200"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Nexera Consulting joylashuvi"
+                />
+              </div>
+
               <div className="bg-blue-50 rounded-2xl p-5 space-y-2.5">
                 <p className="font-bold text-slate-900 text-sm mb-3">Nima uchun Nexera?</p>
                 {[
