@@ -485,6 +485,15 @@ export default function HomeClient({ data }: { data: SiteData }) {
                     <div className="text-slate-900 font-semibold text-sm group-hover:text-blue-600 transition-colors">{c.contact_phone}</div>
                   </div>
                 </a>
+                <a href={`https://t.me/${c.telegram_username}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group">
+                  <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-100 transition-colors">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" className="text-blue-600"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8l-1.68 7.92c-.12.56-.46.7-.93.43l-2.58-1.9-1.24 1.2c-.14.14-.26.26-.53.26l.19-2.66 4.84-4.37c.21-.19-.05-.29-.32-.1L7.7 14.57l-2.55-.8c-.55-.17-.56-.55.12-.82l9.96-3.84c.46-.17.86.11.71.81-.01 0-.01 0 0 0z" fill="currentColor"/></svg>
+                  </div>
+                  <div>
+                    <div className="text-xs text-slate-400 font-medium">Telegram</div>
+                    <div className="text-slate-900 font-semibold text-sm group-hover:text-blue-600 transition-colors">@{c.telegram_username}</div>
+                  </div>
+                </a>
                 <a href={`mailto:${c.contact_email}`} className="flex items-center gap-4 group">
                   <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-100 transition-colors">
                     <Mail size={18} className="text-blue-600" />
