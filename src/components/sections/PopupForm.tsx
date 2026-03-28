@@ -7,7 +7,7 @@ import IntakeForm from '@/components/forms/IntakeForm';
 
 const INACTIVITY_MS = 45_000;
 
-export default function PopupForm() {
+export default function PopupForm({ countries }: { countries?: string[] }) {
   const [show, setShow]       = useState(false);
   const dismissedRef          = useRef(false);   // ref avoids stale closure
   const timerRef              = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -89,7 +89,7 @@ export default function PopupForm() {
                 </button>
               </div>
               <div className="px-6 pb-6 pt-2">
-                <IntakeForm onSuccess={close} />
+                <IntakeForm onSuccess={close} countries={countries} />
               </div>
             </div>
           </motion.div>

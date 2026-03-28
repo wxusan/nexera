@@ -8,6 +8,7 @@ import {
   TESTIMONIALS as FB_TESTIMONIALS,
   UNIVERSITIES as FB_UNIVERSITIES,
   FAQ_ITEMS as FB_FAQ,
+  COUNTRIES as FB_COUNTRIES,
 } from './constants';
 
 // ─── FALLBACK CONTENT (shown when Sheets is not configured) ────────────────
@@ -43,6 +44,7 @@ const FALLBACK_CONTENT: SiteContent = {
   contact_email:        "nexeraconsulting@gmail.com",
   contact_address:      "Galaba shokh ko'chasi, Navoiy",
   telegram_username:    "Nexera_consulting",
+  instagram_username:   "Nexera_consulting",
   footer_tagline:       "O'zbekiston talabalariga xorijiy universitetlarga qabul va viza olishda professional yordam.",
 };
 
@@ -76,7 +78,7 @@ function dataRows(rows: string[][]): string[][] {
 }
 
 // ─── PARSERS ──────────────────────────────────────────────────────────────
-// Only these 6 fields are editable from Sheets — everything else is hardcoded in FALLBACK_CONTENT
+// These fields are editable from the Content sheet — everything else uses FALLBACK_CONTENT
 const EDITABLE_KEYS = new Set([
   'hero_headline',
   'hero_subtext',
@@ -84,6 +86,7 @@ const EDITABLE_KEYS = new Set([
   'contact_email',
   'contact_address',
   'telegram_username',
+  'instagram_username',
 ]);
 
 function parseContent(rows: string[][]): SiteContent {
@@ -157,9 +160,17 @@ function parseFaq(rows: string[][]): FaqItem[] {
   return data.length ? data : FB_FAQ;
 }
 
+// Countries sheet: Column A = country name. One country per row.
+function parseCountries(rows: string[][]): string[] {
+  const data = dataRows(rows)
+    .map(([name]) => name?.trim())
+    .filter(Boolean) as string[];
+  return data.length ? data : FB_COUNTRIES;
+}
+
 // ─── CORE FETCHER (no cache) ───────────────────────────────────────────────
 async function fetchSiteData(): Promise<SiteData> {
-  const [contentRaw, statsRaw, servicesRaw, processRaw, teamRaw, testimonialsRaw, universitiesRaw, faqRaw] =
+  const [contentRaw, statsRaw, servicesRaw, processRaw, teamRaw, testimonialsRaw, universitiesRaw, faqRaw, countriesRaw] =
     await Promise.all([
       fetchSheet('Content'),
       fetchSheet('Stats'),
@@ -169,6 +180,7 @@ async function fetchSiteData(): Promise<SiteData> {
       fetchSheet('Testimonials'),
       fetchSheet('Universities'),
       fetchSheet('FAQ'),
+      fetchSheet('Countries'),
     ]);
 
   return {
@@ -180,6 +192,7 @@ async function fetchSiteData(): Promise<SiteData> {
     testimonials: parseTestimonials(testimonialsRaw),
     universities: parseUniversities(universitiesRaw),
     faq:          parseFaq(faqRaw),
+    countries:    parseCountries(countriesRaw),
   };
 }
 

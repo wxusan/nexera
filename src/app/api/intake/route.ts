@@ -26,7 +26,7 @@ async function appendToLeads(data: IntakeData): Promise<void> {
 
   await sheets.spreadsheets.values.append({
     spreadsheetId: sheetId,
-    range: 'Leads!A:G',
+    range: 'Leads!A:H',
     valueInputOption: 'USER_ENTERED',
     requestBody: {
       values: [[
@@ -37,6 +37,7 @@ async function appendToLeads(data: IntakeData): Promise<void> {
         data.serviceType,
         data.country,
         data.message ?? '',
+        'New',
       ]],
     },
   });

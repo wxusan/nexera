@@ -1,4 +1,5 @@
 import { Phone, Mail, MapPin, Instagram, Send } from 'lucide-react';
+import { getSiteData } from '@/lib/sheets';
 
 const NAV_LINKS = [
   { label: "Xizmatlar",       href: "#xizmatlar" },
@@ -9,7 +10,9 @@ const NAV_LINKS = [
   { label: "FAQ",             href: "#faq" },
 ];
 
-export default function Footer() {
+export default async function Footer() {
+  const { content } = await getSiteData();
+
   return (
     <footer className="bg-slate-900 text-slate-400">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-8">
@@ -22,12 +25,12 @@ export default function Footer() {
               <span className="w-1.5 h-1.5 rounded-full bg-teal-400 mb-3" />
             </div>
             <p className="text-sm leading-relaxed mb-5 max-w-xs">
-              O'zbekiston talabalariga xorijiy universitetlarga qabul va viza olishda professional yordam.
+              {content.footer_tagline}
             </p>
             <div className="flex gap-3">
               {[
-                { icon: <Instagram size={16} />, href: 'https://instagram.com/Nexera_consulting', label: 'Instagram' },
-                { icon: <Send size={16} />,      href: 'https://t.me/Nexera_consulting',        label: 'Telegram'  },
+                { icon: <Instagram size={16} />, href: `https://instagram.com/${content.instagram_username}`, label: 'Instagram' },
+                { icon: <Send size={16} />,      href: `https://t.me/${content.telegram_username}`,          label: 'Telegram'  },
               ].map((s) => (
                 <a
                   key={s.label}
@@ -60,9 +63,9 @@ export default function Footer() {
             <h4 className="text-white font-semibold text-sm mb-4">Aloqa</h4>
             <ul className="space-y-3">
               {[
-                { icon: <Phone size={15} />,  text: '+998 99 212 99 44' },
-                { icon: <Mail size={15} />,   text: 'nexeraconsulting@gmail.com' },
-                { icon: <MapPin size={15} />, text: "Galaba shokh ko'chasi, Navoiy" },
+                { icon: <Phone size={15} />,  text: content.contact_phone },
+                { icon: <Mail size={15} />,   text: content.contact_email },
+                { icon: <MapPin size={15} />, text: content.contact_address },
               ].map((item, i) => (
                 <li key={i} className="flex items-center gap-2.5 text-sm">
                   <span className="text-blue-400 flex-shrink-0">{item.icon}</span>

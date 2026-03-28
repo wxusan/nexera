@@ -43,7 +43,8 @@ const inputCls = (error?: string) => cn(
     : "border-slate-200 bg-white hover:border-slate-300"
 );
 
-export default function IntakeForm({ onSuccess }: { onSuccess?: () => void }) {
+export default function IntakeForm({ onSuccess, countries: countriesProp }: { onSuccess?: () => void; countries?: string[] }) {
+  const countries = countriesProp ?? COUNTRIES;
   const [step, setStep] = useState(1);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -197,7 +198,7 @@ export default function IntakeForm({ onSuccess }: { onSuccess?: () => void }) {
               <Field label="Qaysi mamlakatga bormoqchisiz? *" error={errors.country?.message}>
                 <select {...register('country')} className={inputCls(errors.country?.message)}>
                   <option value="">Mamlakatni tanlang</option>
-                  {COUNTRIES.map((c) => (
+                  {countries.map((c) => (
                     <option key={c} value={c}>{c}</option>
                   ))}
                 </select>

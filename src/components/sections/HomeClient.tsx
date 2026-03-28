@@ -195,7 +195,7 @@ function TestimonialsCarousel({ testimonials }: { testimonials: Testimonial[] })
 
 // ─── MAIN COMPONENT ───────────────────────────────────────────────────────
 export default function HomeClient({ data }: { data: SiteData }) {
-  const { content: c, stats, services, process, team, testimonials, universities, faq } = data;
+  const { content: c, stats, services, process, team, testimonials, universities, faq, countries } = data;
 
   const scrollTo = (id: string) =>
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
@@ -547,7 +547,7 @@ export default function HomeClient({ data }: { data: SiteData }) {
             </FadeIn>
             <FadeIn delay={0.15}>
               <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-6 sm:p-8">
-                <IntakeForm />
+                <IntakeForm countries={countries} />
               </div>
             </FadeIn>
           </div>

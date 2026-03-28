@@ -66,4 +66,5 @@ export interface SiteData {
   testimonials: Testimonial[];
   universities: University[];
   faq: FaqItem[];
+  countries: string[];
 }

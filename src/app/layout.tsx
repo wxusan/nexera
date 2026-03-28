@@ -5,6 +5,7 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import FloatingWhatsApp from '@/components/layout/FloatingWhatsApp';
 import PopupForm from '@/components/sections/PopupForm';
+import { getSiteData } from '@/lib/sheets';
 
 const inter = Inter({ subsets: ['latin', 'cyrillic'], variable: '--font-inter' });
 
@@ -44,7 +45,9 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const data = await getSiteData();
+
   return (
     <html lang="uz" className={inter.variable}>
       <head />
@@ -52,8 +55,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Navbar />
         <main className="min-h-screen">{children}</main>
         <Footer />
-        <FloatingWhatsApp />
-        <PopupForm />
+        <FloatingWhatsApp telegramUsername={data.content.telegram_username} />
+        <PopupForm countries={data.countries} />
       </body>
     </html>
   );

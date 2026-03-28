@@ -2,8 +2,8 @@
 
 import { motion } from 'framer-motion';
 
-export default function FloatingTelegram() {
-  const username = process.env.NEXT_PUBLIC_TELEGRAM_USERNAME ?? 'nexera_uz';
+export default function FloatingTelegram({ telegramUsername }: { telegramUsername: string }) {
+  const username = telegramUsername;
 
   return (
     <motion.div
@@ -26,7 +26,7 @@ export default function FloatingTelegram() {
       <div className="relative">
         <span className="absolute inset-0 rounded-full bg-sky-400 animate-ping opacity-25" />
         <a
-          href={`https://t.me/${username}`}
+          href={`https://t.me/${username}?text=${encodeURIComponent('Assalomu aleykum. Konsultatsiya olmoqchi edim. Yordam berolasizmi?')}`}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Telegram orqali bog'laning"
