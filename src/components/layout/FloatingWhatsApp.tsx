@@ -26,7 +26,7 @@ export default function FloatingTelegram({ telegramUsername }: { telegramUsernam
       <div className="relative">
         <span className="absolute inset-0 rounded-full bg-sky-400 animate-ping opacity-25" />
         <a
-          href={`https://t.me/${username}?text=${encodeURIComponent('Assalomu aleykum. Konsultatsiya olmoqchi edim. Yordam berolasizmi?')}`}
+          href={`https://t.me/${username}?text=Assalomu+aleykum.+Konsultatsiya+olmoqchi+edim.+Yordam+berolasizmi%3F`}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Telegram orqali bog'laning"

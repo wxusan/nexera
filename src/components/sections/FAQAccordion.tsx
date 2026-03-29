@@ -7,10 +7,13 @@ import type { FaqItem } from '@/lib/types';
 
 export default function FAQAccordion({ items }: { items: FaqItem[] }) {
   const [open, setOpen] = useState<string | null>(null);
+  const safeItems = items ?? [];
+
+  if (safeItems.length === 0) return null;
 
   return (
     <div className="space-y-3">
-      {items.map((item) => (
+      {safeItems.map((item) => (
         <div key={item.id} className="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
           <button
             onClick={() => setOpen(open === item.id ? null : item.id)}

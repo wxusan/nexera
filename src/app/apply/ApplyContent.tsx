@@ -1,9 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { CheckCircle, Clock, Globe, Award, Mail, Send, Info } from 'lucide-react';
 import IntakeForm from '@/components/forms/IntakeForm';
-import FadeInSection from '@/components/ui/FadeInSection';
-import * as Icons from 'lucide-react';
 
 export default function ApplyContent({
   countries,
@@ -16,117 +15,101 @@ export default function ApplyContent({
 }) {
   return (
     <>
-      {/* Hero Section */}
-      <section className="section-padding bg-gradient-to-br from-primary-50 to-blue-50 pt-32 sm:pt-40">
-        <div className="max-w-7xl mx-auto text-center">
+      {/* Hero */}
+      <section className="bg-gradient-to-br from-blue-600 via-blue-700 to-slate-900 pt-32 sm:pt-40 pb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="section-heading mb-4"
+            className="text-3xl sm:text-4xl font-black text-white mb-4 leading-tight"
           >
-            Start Your Application
+            Ariza topshirish
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="section-subheading max-w-2xl mx-auto"
+            className="text-blue-100 text-lg max-w-2xl mx-auto"
           >
-            Take the first step towards your international education goals. Fill out this form and our consultants will be in touch within 24 hours.
+            Xorijiy universitetga o&apos;qishga kirish yo&apos;lingizda birinchi qadamni qo&apos;ying.
+            Formani to&apos;ldiring — mutaxassisimiz 24 soat ichida siz bilan bog&apos;lanadi.
           </motion.p>
         </div>
       </section>
 
       {/* Main Content */}
-      <section className="section-padding bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-3 gap-12">
+      <section className="py-16 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-3 gap-10">
+
             {/* Form */}
             <div className="lg:col-span-2">
-              <FadeInSection>
-                <div className="bg-light p-8 rounded-xl">
-                  <IntakeForm countries={countries} />
-                </div>
-              </FadeInSection>
+              <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-6 sm:p-8">
+                <IntakeForm countries={countries} />
+              </div>
             </div>
 
             {/* Sidebar */}
-            <div>
-              <FadeInSection direction="right">
-                <motion.div
-                  className="sticky top-24 space-y-6"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6 }}
-                >
-                  {/* Trust Indicators */}
-                  <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-                    <h3 className="font-bold text-navy mb-4">Why Choose Us</h3>
-                    <div className="space-y-4">
-                      {[
-                        { icon: 'CheckCircle', text: '500+ students placed' },
-                        { icon: 'Award', text: '96% success rate' },
-                        { icon: 'Clock', text: '24-hour response time' },
-                        { icon: 'Globe', text: 'Partner in 40+ countries' },
-                      ].map((item, index) => {
-                        const IconComponent = (Icons as Record<string, any>)[item.icon] || Icons.CheckCircle;
-                        return (
-                          <motion.div
-                            key={item.text}
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ delay: index * 0.1 }}
-                            className="flex items-start gap-3"
-                          >
-                            <IconComponent size={20} className="text-primary-600 mt-1 flex-shrink-0" />
-                            <span className="text-sm text-gray-700">{item.text}</span>
-                          </motion.div>
-                        );
-                      })}
-                    </div>
-                  </div>
+            <div className="space-y-5">
 
-                  {/* Contact Card */}
-                  <div className="bg-gradient-to-br from-primary-600 to-primary-700 rounded-xl p-6 text-white">
-                    <h3 className="font-bold mb-4">Need Help?</h3>
-                    <p className="text-sm text-blue-100 mb-4">
-                      Have questions? Our team is here to help.
-                    </p>
-                    <div className="space-y-3">
-                      <a
-                        href={`mailto:${contactEmail}`}
-                        className="flex items-center gap-2 text-sm hover:text-blue-100 transition-colors"
-                      >
-                        <Icons.Mail size={16} />
-                        {contactEmail}
-                      </a>
-                      <a
-                        href={`https://t.me/${telegramUsername}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-sm hover:text-blue-100 transition-colors"
-                      >
-                        <Icons.MessageCircle size={16} />
-                        @{telegramUsername}
-                      </a>
+              {/* Trust indicators */}
+              <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-6">
+                <h3 className="font-bold text-slate-900 mb-4 text-sm">Nima uchun Nexera?</h3>
+                <div className="space-y-3">
+                  {[
+                    { icon: CheckCircle, text: '500+ talaba muvaffaqiyatli joylashtirildi' },
+                    { icon: Award,        text: '96% muvaffaqiyat darajasi' },
+                    { icon: Clock,        text: '24 soat ichida javob' },
+                    { icon: Globe,        text: '40+ mamlakatda hamkorlik' },
+                  ].map((item) => (
+                    <div key={item.text} className="flex items-start gap-3">
+                      <item.icon size={16} className="text-teal-500 mt-0.5 flex-shrink-0" />
+                      <span className="text-sm text-slate-600">{item.text}</span>
                     </div>
-                  </div>
+                  ))}
+                </div>
+              </div>
 
-                  {/* Info Card */}
-                  <div className="bg-blue-50 rounded-xl p-6 border border-primary-200">
-                    <h4 className="font-bold text-navy mb-3 flex items-center gap-2">
-                      <Icons.Info size={18} />
-                      What to Expect
-                    </h4>
-                    <ul className="space-y-2 text-sm text-gray-700">
-                      <li>• Review your application</li>
-                      <li>• Schedule a consultation call</li>
-                      <li>• Create your action plan</li>
-                      <li>• Start your journey</li>
-                    </ul>
-                  </div>
-                </motion.div>
-              </FadeInSection>
+              {/* Contact card */}
+              <div className="bg-blue-600 rounded-2xl p-6 text-white">
+                <h3 className="font-bold mb-3 text-sm">Savollaringiz bormi?</h3>
+                <p className="text-blue-100 text-xs mb-4 leading-relaxed">
+                  Jarayon haqida savol bo&apos;lsa, biz bilan bog&apos;laning — bepul maslahat beramiz.
+                </p>
+                <div className="space-y-2.5">
+                  <a
+                    href={`mailto:${contactEmail}`}
+                    className="flex items-center gap-2 text-xs hover:text-blue-100 transition-colors"
+                  >
+                    <Mail size={14} />
+                    {contactEmail}
+                  </a>
+                  <a
+                    href={`https://t.me/${telegramUsername}?text=Assalomu+aleykum.+Konsultatsiya+olmoqchi+edim.+Yordam+berolasizmi%3F`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-xs hover:text-blue-100 transition-colors"
+                  >
+                    <Send size={14} />
+                    @{telegramUsername}
+                  </a>
+                </div>
+              </div>
+
+              {/* What to expect */}
+              <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-6">
+                <h4 className="font-bold text-slate-900 mb-3 text-sm flex items-center gap-2">
+                  <Info size={15} className="text-blue-600" />
+                  Keyingi qadamlar
+                </h4>
+                <ul className="space-y-2 text-sm text-slate-600">
+                  <li className="flex items-start gap-2"><span className="text-blue-600 font-bold text-xs mt-0.5">1.</span> Arizangizni ko&apos;rib chiqamiz</li>
+                  <li className="flex items-start gap-2"><span className="text-blue-600 font-bold text-xs mt-0.5">2.</span> Qulay vaqtda qo&apos;ng&apos;iroq qilamiz</li>
+                  <li className="flex items-start gap-2"><span className="text-blue-600 font-bold text-xs mt-0.5">3.</span> Shaxsiy harakat rejasini tuzamiz</li>
+                  <li className="flex items-start gap-2"><span className="text-blue-600 font-bold text-xs mt-0.5">4.</span> Birgalikda maqsadga erishamiz</li>
+                </ul>
+              </div>
+
             </div>
           </div>
         </div>

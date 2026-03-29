@@ -195,7 +195,9 @@ function TestimonialsCarousel({ testimonials }: { testimonials: Testimonial[] })
 
 // ─── MAIN COMPONENT ───────────────────────────────────────────────────────
 export default function HomeClient({ data }: { data: SiteData }) {
-  const { content: c, stats, services, process, team, testimonials, universities, faq, countries } = data;
+  const { content: c, stats, services, process, team, testimonials, universities } = data;
+  const faq       = data.faq       ?? [];
+  const countries = data.countries ?? [];
 
   const scrollTo = (id: string) =>
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
